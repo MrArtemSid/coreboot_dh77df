@@ -1,4 +1,4 @@
-if BOARD__
+if BOARD_INTEL_DH77DF
 
 config BOARD_SPECIFIC_OPTIONS
 	def_bool y
@@ -6,7 +6,7 @@ config BOARD_SPECIFIC_OPTIONS
 	select HAVE_ACPI_RESUME
 	select HAVE_ACPI_TABLES
 	select INTEL_INT15
-	select MAINBOARD_HAS_LIBGFXINIT # FIXME: check this
+	select MAINBOARD_HAS_LIBGFXINIT
 	select NORTHBRIDGE_INTEL_SANDYBRIDGE
 	select SERIRQ_CONTINUOUS_MODE
 	select SOUTHBRIDGE_INTEL_C216
@@ -14,11 +14,11 @@ config BOARD_SPECIFIC_OPTIONS
 
 config MAINBOARD_DIR
 	string
-	default "/"
+	default "intel/dh77df"
 
 config MAINBOARD_PART_NUMBER
 	string
-	default ""
+	default "DH77DF"
 
 config VGA_BIOS_ID
 	string

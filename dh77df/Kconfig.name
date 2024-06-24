@@ -1,2 +1,2 @@
-config BOARD__
-	bool ""
+config BOARD_INTEL_DH77DF
+	bool "DH77DF"
