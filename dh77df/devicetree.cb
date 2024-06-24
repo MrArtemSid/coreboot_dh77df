@@ -1,16 +1,4 @@
-chip northbridge/intel/sandybridge # FIXME: GPU registers may not always apply.
-	register "gfx" = "GMA_STATIC_DISPLAYS(0)"
-	register "gpu_cpu_backlight" = "0x00000000"
-	register "gpu_dp_b_hotplug" = "4"
-	register "gpu_dp_c_hotplug" = "4"
-	register "gpu_dp_d_hotplug" = "4"
-	register "gpu_panel_port_select" = "0"
-	register "gpu_panel_power_backlight_off_delay" = "0"
-	register "gpu_panel_power_backlight_on_delay" = "0"
-	register "gpu_panel_power_cycle_delay" = "4"
-	register "gpu_panel_power_down_delay" = "0"
-	register "gpu_panel_power_up_delay" = "0"
-	register "gpu_pch_backlight" = "0x00000000"
+chip northbridge/intel/sandybridge
 	register "spd_addresses" = "{0x50, 0x51, 0x52, 0x53}" # FIXME: Put proper SPD map here"
 	device domain 0x0 on
 		chip southbridge/intel/bd82x6x # Intel Series 6 Cougar Point PCH
