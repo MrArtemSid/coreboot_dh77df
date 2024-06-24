@@ -78,6 +78,48 @@ chip northbridge/intel/sandybridge
 			end
 			device ref lpc on # LPC bridge
 				subsystemid 0x8086 0x2034
+				chip superio/nuvoton/nct6776 # FIXME: Recheck
+					device pnp 2e.0 off end		# Floppy
+					device pnp 2e.1 off end		# Parallel port
+					device pnp 2e.2 off end		# COM1
+					device pnp 2e.3 off end		# COM2, IR
+					device pnp 2e.5 on		# Keyboard
+						io 0x60 = 0x60
+						io 0x62 = 0x64
+						irq 0x70 = 1
+						irq 0x72 = 12
+					end
+					device pnp 2e.6 off end		# CIR
+					device pnp 2e.7   off end	# GPIO8
+					device pnp 2e.8 off end		# WDT1
+					device pnp 2e.308 on		# GPIO base
+						io 0x60 = 0x0
+						irq 0xf0 = 0x3e		# + GPIO1 direction
+						irq 0xf1 = 0xde		# + GPIO1 value
+					end
+					device pnp 2e.a on		# ACPI
+						irq 0xe0 = 0x06
+						irq 0xe1 = 0x0e
+						irq 0xe3 = 0x02
+						irq 0xe4 = 0x30
+						irq 0xe6 = 0xcc
+						irq 0xe9 = 0x00
+						irq 0xf0 = 0x20
+						irq 0xf2 = 0x5d
+					end
+					device pnp 2e.b on		# HWM, front panel LED
+						irq 0x30 = 0x01		# + Fan RPM sense pins
+						io  0x60 = 0x0a	# + HWM base address
+						io  0x62 = 0x0a
+						irq 0x70 = 0
+					end
+					device pnp 2e.d on end		# VID
+					device pnp 2e.e off end		# CIR WAKE-UP
+					device pnp 2e.f on end		# GPIO Push-Pull or Open-drain
+					device pnp 2e.14 on end		# SVID
+					device pnp 2e.16 on end		# Deep Sleep
+					device pnp 2e.17 on end		# GPIOA
+				end
 			end
 			device ref sata1 on # SATA Controller 1
 				subsystemid 0x8086 0x2034
